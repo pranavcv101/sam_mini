@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+     LOGIN PAGE  
+{% endblock %}
+{% block content %}
+<body class="text-center">
+<div class="container">
+    <form method="post" class = "form-register" style="color:white">
+        {{ form.hidden_tag() }} <!-- #to protect from some attack name starting with c i fogot-->
+        <img class="mb-4" src="sample.jpg">
+        <h1 class="h3 mb-3 font-weight-normal">
+            Please login
+        </h1>
+        <br>
+        
+        {{ form.username.label() }}
+        {{ form.username(class="form-control",placeholder = "User Name") }}
+
+        {{ form.password.label() }}
+        {{ form.password(class="form-control",placeholder = "Password") }}
+
+        <br>
+
+          <div class = "checkbox mb-3">
+                <h6>Do no have an account?</h6>
+                <a class  = "btn btn-sm btn-secondary" href="{{ url_for('register_page')  }}">Register</a>
+          </div>      
+          <br>   
+        {{ form.submit(class="btn btn-lg btn-block btn-primary")}}
+
+    </form>
+</div>
+</body>
+{% endblock %}
+
